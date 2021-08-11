@@ -1,0 +1,57 @@
+$date
+	Sat Jul 10 18:43:29 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Q1_tb $end
+$var wire 1 ! B $end
+$var wire 1 " C $end
+$var reg 1 # A $end
+$scope module uut $end
+$var wire 1 $ A $end
+$var wire 1 ! B $end
+$var wire 1 " C $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+z"
+z!
+$end
+#3000
+0!
+#5000
+1"
+1#
+1$
+#8000
+1!
+#10000
+0"
+#13000
+0!
+#15000
+1"
+#18000
+1!
+#20000
+0"
+#23000
+0!
+#25000
+1"
+#28000
+1!
+#30000
+0"
+#33000
+0!
+#35000
+1"

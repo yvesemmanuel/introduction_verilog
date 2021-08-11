@@ -1,0 +1,63 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00806DB8 .scope module, "Q2_tb" "Q2_tb" 2 2;
+ .timescale -9 -12;
+v00FA0DA0_0 .var "A", 0 0;
+v00FA0FB0_0 .var "B", 0 0;
+v00FA0D48_0 .var "C", 0 0;
+v00FA0F58_0 .var "D", 0 0;
+v00FA1270_0 .net "Z", 0 0, L_00FA1AC8; 1 drivers
+S_008075B0 .scope module, "uut" "Q2" 2 6, 3 2, S_00806DB8;
+ .timescale -9 -12;
+L_00803C90 .functor AND 1, v00FA0DA0_0, v00FA0FB0_0, C4<1>, C4<1>;
+L_00FA1508/d .functor AND 1, L_00803C90, v00FA0D48_0, C4<1>, C4<1>;
+L_00FA1508 .delay (5000,5000,5000) L_00FA1508/d;
+L_00FA15E0/d .functor OR 1, L_00FA1508, v00FA0F58_0, C4<0>, C4<0>;
+L_00FA15E0 .delay (5000,5000,5000) L_00FA15E0/d;
+L_00FA16B8/d .functor NOR 1, v00FA0FB0_0, v00FA0D48_0, C4<0>, C4<0>;
+L_00FA16B8 .delay (5000,5000,5000) L_00FA16B8/d;
+L_00FA1A90/d .functor NAND 1, L_00FA16B8, v00FA0DA0_0, C4<1>, C4<1>;
+L_00FA1A90 .delay (5000,5000,5000) L_00FA1A90/d;
+L_00FA1748/d .functor NOT 1, L_00FA1A90, C4<0>, C4<0>, C4<0>;
+L_00FA1748 .delay (2000,2000,2000) L_00FA1748/d;
+L_00FA1AC8/d .functor XOR 1, L_00FA15E0, L_00FA1748, C4<0>, C4<0>;
+L_00FA1AC8 .delay (5000,5000,5000) L_00FA1AC8/d;
+v00803B88_0 .net "A", 0 0, v00FA0DA0_0; 1 drivers
+v0080EEE8_0 .net "B", 0 0, v00FA0FB0_0; 1 drivers
+v0080EF40_0 .net "C", 0 0, v00FA0D48_0; 1 drivers
+v00803BE0_0 .net "D", 0 0, v00FA0F58_0; 1 drivers
+v00803C38_0 .net "E", 0 0, L_00FA15E0; 1 drivers
+v008045E8_0 .net "F", 0 0, L_00FA1A90; 1 drivers
+v00804640_0 .net "S1", 0 0, L_00FA1508; 1 drivers
+v00804698_0 .net "S2", 0 0, L_00FA16B8; 1 drivers
+v00FA0C18_0 .net "S3", 0 0, L_00FA1748; 1 drivers
+v00FA0C70_0 .alias "Z", 0 0, v00FA1270_0;
+v00FA0F00_0 .net *"_s0", 0 0, L_00803C90; 1 drivers
+    .scope S_00806DB8;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "Q2_tb.vcd";
+    %vpi_call 2 10 "$dumpvars", 1'sb0, S_00806DB8;
+    %set/v v00FA0DA0_0, 0, 1;
+    %set/v v00FA0FB0_0, 0, 1;
+    %set/v v00FA0D48_0, 0, 1;
+    %set/v v00FA0F58_0, 0, 1;
+    %delay 1000, 0;
+    %set/v v00FA0F58_0, 1, 1;
+    %delay 20000, 0;
+    %set/v v00FA0DA0_0, 1, 1;
+    %delay 23000, 0;
+    %set/v v00FA0FB0_0, 1, 1;
+    %delay 60000, 0;
+    %vpi_call 2 15 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Q2_tb.v";
+    "Q2.v";

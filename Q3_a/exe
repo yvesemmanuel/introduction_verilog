@@ -1,0 +1,82 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01037B10 .scope module, "Q3_tb" "Q3_tb" 2 2;
+ .timescale -9 -12;
+v0103D948_0 .var "A", 0 0;
+v0103DD10_0 .var "B", 0 0;
+v0103E8E8_0 .var "C", 0 0;
+v0103E788_0 .var "D", 0 0;
+v0103E940_0 .net "F", 0 0, L_0103E7E0; 1 drivers
+S_010375C0 .scope module, "uut" "Q3_a" 2 6, 3 2, S_01037B10;
+ .timescale -9 -12;
+v01033230_0 .net "A", 0 0, v0103D948_0; 1 drivers
+v01033288_0 .net "B", 0 0, v0103DD10_0; 1 drivers
+v0103D9F8_0 .net "C", 0 0, v0103E8E8_0; 1 drivers
+v0103DB00_0 .net "D", 0 0, v0103E788_0; 1 drivers
+v0103D790_0 .alias "F", 0 0, v0103E940_0;
+v0103DC08_0 .net *"_s0", 1 0, L_0103E050; 1 drivers
+v0103D6E0_0 .net *"_s11", 0 0, C4<0>; 1 drivers
+v0103D898_0 .net *"_s12", 1 0, C4<00>; 1 drivers
+v0103D7E8_0 .net *"_s14", 0 0, L_0103E578; 1 drivers
+v0103DBB0_0 .net *"_s17", 0 0, L_0103DFF8; 1 drivers
+v0103DA50_0 .net *"_s18", 0 0, L_0103E2B8; 1 drivers
+v0103D9A0_0 .net *"_s20", 1 0, L_0103E0A8; 1 drivers
+v0103DD68_0 .net *"_s23", 0 0, C4<0>; 1 drivers
+v0103DC60_0 .net *"_s24", 1 0, C4<00>; 1 drivers
+v0103D688_0 .net *"_s26", 0 0, L_0103E4C8; 1 drivers
+v0103D738_0 .net *"_s29", 0 0, L_0103E1B0; 1 drivers
+v0103DDC0_0 .net *"_s3", 0 0, C4<0>; 1 drivers
+v0103D840_0 .net *"_s30", 0 0, C4<0>; 1 drivers
+v0103DCB8_0 .net *"_s32", 0 0, L_0103E310; 1 drivers
+v0103DAA8_0 .net *"_s4", 1 0, C4<00>; 1 drivers
+v0103D8F0_0 .net *"_s6", 0 0, L_0103E730; 1 drivers
+v0103DB58_0 .net *"_s8", 1 0, L_0103DFA0; 1 drivers
+L_0103E050 .concat [ 1 1 0 0], v0103E8E8_0, C4<0>;
+L_0103E730 .cmp/eq 2, L_0103E050, C4<00>;
+L_0103DFA0 .concat [ 1 1 0 0], v0103E788_0, C4<0>;
+L_0103E578 .cmp/eq 2, L_0103DFA0, C4<00>;
+L_0103DFF8 .reduce/nor v0103D948_0;
+L_0103E2B8 .functor MUXZ 1, v0103DD10_0, L_0103DFF8, L_0103E578, C4<>;
+L_0103E0A8 .concat [ 1 1 0 0], v0103E788_0, C4<0>;
+L_0103E4C8 .cmp/eq 2, L_0103E0A8, C4<00>;
+L_0103E1B0 .reduce/nor v0103DD10_0;
+L_0103E310 .functor MUXZ 1, C4<0>, L_0103E1B0, L_0103E4C8, C4<>;
+L_0103E7E0 .delay (10000,10000,10000) L_0103E7E0/d;
+L_0103E7E0/d .functor MUXZ 1, L_0103E310, L_0103E2B8, L_0103E730, C4<>;
+    .scope S_01037B10;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "Q3_tb.vcd";
+    %vpi_call 2 10 "$dumpvars", 1'sb0, S_01037B10;
+    %set/v v0103D948_0, 1, 1;
+    %set/v v0103DD10_0, 0, 1;
+    %set/v v0103E8E8_0, 0, 1;
+    %set/v v0103E788_0, 0, 1;
+    %delay 2000, 0;
+    %set/v v0103D948_0, 0, 1;
+    %set/v v0103DD10_0, 0, 1;
+    %set/v v0103E8E8_0, 0, 1;
+    %set/v v0103E788_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0103D948_0, 0, 1;
+    %set/v v0103DD10_0, 1, 1;
+    %set/v v0103E8E8_0, 0, 1;
+    %set/v v0103E788_0, 1, 1;
+    %delay 20000, 0;
+    %set/v v0103D948_0, 0, 1;
+    %set/v v0103DD10_0, 1, 1;
+    %set/v v0103E8E8_0, 1, 1;
+    %set/v v0103E788_0, 0, 1;
+    %delay 80000, 0;
+    %vpi_call 2 17 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Q3_tb.v";
+    "Q3_a.v";

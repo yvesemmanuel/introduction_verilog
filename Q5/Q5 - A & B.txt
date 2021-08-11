@@ -1,0 +1,7 @@
+5)
+
+a) Consiste em 8 entradas para 2 números de quatro bits e 3 saídas para gerar as comparações 'menor', 'igual' ou 'maior' entre dois números binários. Além disso, há também entradas adicionais para podermos conectar outros comparadores em cascata e comparar números com maior número de bit:
+	IMAGEM!
+
+b) Como dito na questão anterior, basta conectar ambos em cascata, ligando as saídas de comparação do primeiro comparador nas entradas de comparação do segundo comparador:
+	IMAGEM!
