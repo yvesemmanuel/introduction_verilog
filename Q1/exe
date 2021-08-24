@@ -1,37 +1,42 @@
-#! /c/iverilog/bin/vvp
-:ivl_version "0.9.7 " "(v0_9_7)";
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
 :vpi_time_precision - 12;
 :vpi_module "system";
+:vpi_module "vhdl_sys";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_00846E68 .scope module, "Q1_tb" "Q1_tb" 2 2;
+S_0x56511b885b70 .scope module, "buffer_tb" "buffer_tb" 2 2;
  .timescale -9 -12;
-v00842AD8_0 .var "A", 0 0;
-v00842B30_0 .net "B", 0 0, L_0084EB20; 1 drivers
-v00842B88_0 .net "C", 0 0, L_0084EC00; 1 drivers
-S_00842DE8 .scope module, "uut" "Q1" 2 6, 3 2, S_00846E68;
+v0x56511b894e50_0 .var "enable", 0 0;
+v0x56511b894f20_0 .net "out", 0 0, L_0x56511b8951d0;  1 drivers
+S_0x56511b885cf0 .scope module, "uut" "buffer" 2 6, 3 2 0, S_0x56511b885b70;
  .timescale -9 -12;
-L_0084EB20/d .functor AND 1, v00842AD8_0, L_0084EC00, C4<1>, C4<1>;
-L_0084EB20 .delay (3000,3000,3000) L_0084EB20/d;
-v00842E70_0 .net "A", 0 0, v00842AD8_0; 1 drivers
-v00842EC8_0 .alias "B", 0 0, v00842B30_0;
-v00842A80_0 .alias "C", 0 0, v00842B88_0;
-L_0084EC00 .delay (2000,2000,2000) L_0084EC00/d;
-L_0084EC00/d .reduce/nor L_0084EB20;
-    .scope S_00846E68;
+    .port_info 0 /INPUT 1 "enable"
+    .port_info 1 /OUTPUT 1 "out"
+L_0x56511b894ff0/d .functor AND 1, v0x56511b894e50_0, L_0x56511b8951d0, C4<1>, C4<1>;
+L_0x56511b894ff0 .delay 1 (3000,3000,3000) L_0x56511b894ff0/d;
+v0x56511b850050_0 .net "enable", 0 0, v0x56511b894e50_0;  1 drivers
+v0x56511b894c90_0 .net "in", 0 0, L_0x56511b894ff0;  1 drivers
+v0x56511b894d50_0 .net "out", 0 0, L_0x56511b8951d0;  alias, 1 drivers
+L_0x56511b8951d0 .delay 1 (2000,2000,2000) L_0x56511b8951d0/d;
+L_0x56511b8951d0/d .reduce/nor L_0x56511b894ff0;
+    .scope S_0x56511b885b70;
 T_0 ;
-    %vpi_call 2 9 "$dumpfile", "Q1_tb.vcd";
-    %vpi_call 2 10 "$dumpvars", 1'sb0, S_00846E68;
-    %set/v v00842AD8_0, 0, 1;
+    %vpi_call 2 9 "$dumpfile", "testbench.vcd" {0 0 0};
+    %vpi_call 2 10 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56511b885b70 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56511b894e50_0, 0, 1;
     %delay 5000, 0;
-    %set/v v00842AD8_0, 1, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56511b894e50_0, 0, 1;
     %delay 30000, 0;
-    %vpi_call 2 15 "$finish";
+    %vpi_call 2 15 "$finish" {0 0 0};
     %end;
     .thread T_0;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
     "<interactive>";
-    "Q1_tb.v";
-    "Q1.v";
+    "buffer_tb.v";
+    "buffer.v";

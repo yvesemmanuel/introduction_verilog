@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
-module TB_d();
-  reg LT_IN, EQ_IN, GT_IN;
-  wire LT_OUT, EQ_OUT, GT_OUT;
+module comparator_8bit_tb();
+  reg LTin, EQin, GTin;
+  wire LTout, EQout, GTout;
   reg [7:0] A, B;
   
-  comparator_8bit uut(LT_IN, EQ_IN, GT_IN, LT_OUT, EQ_OUT, GT_OUT, A, B);
+  comparator_8bit uut(LTin, EQin, GTin, LTout, EQout, GTout, A, B);
   
   initial
     begin // A == B
-      $dumpfile("TB_d.vcd");
-      $dumpvars(0, TB_d);
+      $dumpfile("testbench.vcd");
+      $dumpvars(0, comparator_8bit_tb);
 
       A = 8'b00000000; B = 8'b00000000;
 

@@ -1,5 +1,5 @@
 $date
-	Mon Jul 12 17:30:40 2021
+	Mon Aug 23 23:48:05 2021
 $end
 $version
 	Icarus Verilog
@@ -7,47 +7,38 @@ $end
 $timescale
 	1ps
 $end
-$scope module Q3_tb $end
+$scope module mux_4to1_tb $end
 $var wire 1 ! F $end
 $var reg 1 " A $end
 $var reg 1 # B $end
 $var reg 1 $ C $end
 $var reg 1 % D $end
 $scope module uut $end
-$var wire 1 & A $end
-$var wire 1 ' B $end
-$var wire 1 ( C $end
-$var wire 1 ) D $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 $ C $end
+$var wire 1 % D $end
 $var wire 1 ! F $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-0)
-0(
-0'
-1&
 0%
 0$
 0#
 1"
-z!
+x!
 $end
 #2000
 0"
-0&
 #12000
 1!
 1%
-1)
 1#
-1'
 #32000
 0%
-0)
 1$
-1(
 #42000
 0!
 #112000

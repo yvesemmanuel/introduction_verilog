@@ -1,5 +1,5 @@
 $date
-	Tue Jul 13 08:18:11 2021
+	Mon Aug 23 23:50:41 2021
 $end
 $version
 	Icarus Verilog
@@ -7,35 +7,29 @@ $end
 $timescale
 	1ps
 $end
-$scope module TB_c $end
-$var wire 1 ! EQ_OUT $end
-$var wire 1 " GT_OUT $end
-$var wire 1 # LT_OUT $end
+$scope module comparator_4bit_tb $end
+$var wire 1 ! LTout $end
+$var wire 1 " GTout $end
+$var wire 1 # EQout $end
 $var reg 4 $ A [3:0] $end
 $var reg 4 % B [3:0] $end
-$var reg 1 & EQ_IN $end
-$var reg 1 ' GT_IN $end
-$var reg 1 ( LT_IN $end
+$var reg 1 & EQIn $end
+$var reg 1 ' GTin $end
+$var reg 1 ( LTin $end
 $scope module uut $end
 $var wire 4 ) A [3:0] $end
 $var wire 4 * B [3:0] $end
-$var wire 1 + EQ_IN $end
-$var wire 1 , GT_IN $end
-$var wire 1 - LT_IN $end
-$var reg 1 . EQ_OUT $end
-$var reg 1 / GT_OUT $end
-$var reg 1 0 LT_OUT $end
+$var wire 1 & EQ_in $end
+$var wire 1 ' GTin $end
+$var wire 1 ( LTin $end
+$var reg 1 # EQout $end
+$var reg 1 " GTout $end
+$var reg 1 ! LTout $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-00
-0/
-1.
-x-
-x,
-x+
 b0 *
 b0 )
 x(
@@ -43,9 +37,9 @@ x'
 x&
 b0 %
 b0 $
-0#
+1#
 0"
-1!
+0!
 $end
 #10000
 b1100 %
@@ -53,42 +47,32 @@ b1100 *
 b1100 $
 b1100 )
 #20000
-0.
-0!
-10
-1#
+0#
+1!
 b100 $
 b100 )
 #30000
-1/
 1"
-00
-0#
+0!
 b1111 $
 b1111 )
 #40000
-0/
 0"
-1.
-1!
+1#
 b0 %
 b0 *
 b0 $
 b0 )
 #50000
-1/
 1"
-0.
-0!
+0#
 b111 %
 b111 *
 b1111 $
 b1111 )
 #60000
-0/
 0"
-10
-1#
+1!
 b1000 %
 b1000 *
 b101 $

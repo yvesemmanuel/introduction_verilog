@@ -1,8 +1,9 @@
-`timescale 1ns / 1ps
-module Q3_c(A, B, Sel, F);
+`timescale 1ns/1ps
+module mux_4to1(A, B, Sel, F);
   output wire F;
   input wire A, B;
   input wire [1:0] Sel;
+  
   always @(A, B, Sel)
   begin
     case(Sel)
